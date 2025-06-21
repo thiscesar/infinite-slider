@@ -1,4 +1,48 @@
 .infinite-slider {
     overflow: hidden;
     position: relative;
-}
+  }
+  
+  .slider-wrapper {
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  .slider-track {
+    display: flex;
+    width: max-content;
+  }
+  
+  .slider-logo {
+    height: 100px;
+    margin: 0 2rem;
+    object-fit: contain;
+    flex-shrink: 0;
+  }
+  
+  .infinite-slider::before,
+  .infinite-slider::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 100px;
+    height: 100%;
+    z-index: 10;
+    pointer-events: none;
+  }
+  
+  .infinite-slider::before {
+    left: 0;
+    background: linear-gradient(to right, rgb(24, 24, 24), transparent);
+  }
+  
+  .infinite-slider::after {
+    right: 0;
+    background: linear-gradient(to left, rgb(24, 24, 24), transparent);
+  }
+  
+  @keyframes scroll {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  
