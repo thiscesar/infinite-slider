@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Infinite Slider Demo</title>
+    <link rel="stylesheet" href="../dist/infiniteSlider.css" />
+    <style>
+      body {
+        background-color: #181818;
+        font-family: sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="infinite-slider">
+      <img src="../demo/assets/stack-logos/aws-svgrepo-com.svg" alt="AWS" />
+      <img src="../demo/assets/stack-logos/docker-svgrepo-com.svg" alt="DOCKER" />
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="../src/infiniteSlider.js"></script>
+    <script>
+      $(function () {
+        $(".infinite-slider").infiniteSlider({ speed: 15 });
+      });
+    </script>
+  </body>
+</html>
