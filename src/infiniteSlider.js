@@ -1,32 +1,26 @@
 (function ($) {
   $.fn.infiniteSlider = function (options) {
-    const settings = $.extend(
-      {
-        speed: 20, // loop duration
-      },
-      options
-    );
+    const settings = $.extend({
+      speed: 10
+    }, options);
 
     return this.each(function () {
       const $container = $(this);
-      const $images = $container.children().clone();
 
-      if ($container.data("infinite-slider-initialized")) {
-        return;
-      }
+      const speed = $container.data('speed') || settings.speed;
 
-      $container.data("infinite-slider-initialized", true);
+      $container.addClass('slider-component');
 
       const $wrapper = $('<div class="slider-wrapper"></div>');
-      const $track = $('<div class="slider-track"></div>').css({
-        animation: `scroll ${settings.speed}s linear infinite`,
-      });
+      const $track = $('<div class="slider-track"></div>');
 
-      $images.addClass("slider-logo");
-      $track.append($images.clone(), $images.clone());
+      const $items = $container.children().clone();
+      $track.append($items).append($items.clone());
 
       $wrapper.append($track);
       $container.empty().append($wrapper);
+
+      $wrapper.css('--scroll-speed', `${speed}s`);
     });
   };
 })(jQuery);
