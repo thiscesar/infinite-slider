@@ -13,7 +13,7 @@ A lightweight and smooth infinite slider built with jQuery. Ideal for showcasing
 
 ## 🚀 Demo
 
-[View Demo](./demo/demo.html)
+[View Demo](./demo/index.html)
 
 ## 📐 Installation
 
