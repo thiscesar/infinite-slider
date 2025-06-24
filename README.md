@@ -23,3 +23,4 @@ You can include the plugin manually:
 <link rel="stylesheet" href="dist/infiniteSlider.css" />
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script src="dist/infiniteSlider.js"></script>
+
