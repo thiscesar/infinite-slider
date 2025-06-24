@@ -6,23 +6,56 @@
     <title>Infinite Slider Demo</title>
     <link rel="stylesheet" href="../dist/infiniteSlider.css" />
     <style>
+      html,
       body {
+        height: 100%;
+        margin: 0;
         background-color: #181818;
         font-family: sans-serif;
+      }
+
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      main {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        max-width: 100vw;
+        overflow: hidden;
+      }
+
+      .infinite-slider {
+        max-width: 600px;
+        width: 100%;
       }
     </style>
   </head>
   <body>
-    <div class="infinite-slider">
-      <img src="../demo/assets/stack-logos/aws-svgrepo-com.svg" alt="AWS" />
-      <img src="../demo/assets/stack-logos/docker-svgrepo-com.svg" alt="DOCKER" />
-    </div>
+    <main>
+      <div class="infinite-slider">
+        <img src="../demo/assets/stack-logos/aws-svgrepo-com.svg" alt="AWS" />
+        <img
+          src="../demo/assets/stack-logos/docker-svgrepo-com.svg"
+          alt="DOCKER"
+        />
+        <img src="../demo/assets/stack-logos/js-svgrepo-com.svg" alt="JS" />
+        <img
+          src="../demo/assets/stack-logos/mysql-svgrepo-com.svg"
+          alt="MySQL"
+        />
+      </div>
+    </main>
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="../src/infiniteSlider.js"></script>
     <script>
-      $(function () {
-        $(".infinite-slider").infiniteSlider({ speed: 15 });
+      $(() => {
+        $("div.infinite-slider").infiniteSlider({ speed: 2 });
       });
     </script>
   </body>
