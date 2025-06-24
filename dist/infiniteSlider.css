@@ -1,48 +1,67 @@
-.infinite-slider {
+/* Root container of the infinite slider component */
+.slider-component {
     overflow: hidden;
     position: relative;
   }
   
+  /* Wrapper that holds the animated track and centers it */
   .slider-wrapper {
     width: 100%;
     overflow: hidden;
+    display: flex;
+    justify-content: center;
+  
+    /* Custom animation speed (can be overridden via JS) */
+    --scroll-speed: 20s;
   }
   
+  /* Track that slides horizontally — duplicated internally for infinite effect */
   .slider-track {
     display: flex;
     width: max-content;
+    animation: scroll var(--scroll-speed, 20s) linear infinite;
   }
   
-  .slider-logo {
+  /* Styles for each image inside the slider */
+  .slider-track img {
+    all: unset; /* Reset all inherited styles to avoid conflicts */
+    display: block; /* Ensure proper box behavior */
     height: 100px;
     margin: 0 2rem;
-    object-fit: contain;
-    flex-shrink: 0;
+    object-fit: contain; /* Keeps aspect ratio without distortion */
+    flex-shrink: 0; /* Prevents images from shrinking */
   }
   
-  .infinite-slider::before,
-  .infinite-slider::after {
+  /* Gradient fade effect on the left and right edges of the slider */
+  .slider-component::before,
+  .slider-component::after {
     content: "";
     position: absolute;
     top: 0;
     width: 100px;
     height: 100%;
     z-index: 10;
-    pointer-events: none;
+    pointer-events: none; /* Ensures no interaction issues */
   }
   
-  .infinite-slider::before {
+  .slider-component::before {
     left: 0;
-    background: linear-gradient(to right, rgb(24, 24, 24), transparent);
+    background: linear-gradient(to right, rgb(24, 24, 24) 0%, transparent 100%);
   }
   
-  .infinite-slider::after {
+  .slider-component::after {
     right: 0;
-    background: linear-gradient(to left, rgb(24, 24, 24), transparent);
+    background: linear-gradient(to left, rgb(24, 24, 24) 0%, transparent 100%);
   }
   
+  /* Keyframes for the infinite scroll animation */
   @keyframes scroll {
-    0%   { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
+    0% {
+      transform: translateX(0);
+    }
+  
+    100% {
+      transform: translateX(-50%);
+    }
   }
   
